@@ -44,7 +44,7 @@ function Device () {
     this.manufacturer = null;
     this.isVirtual = null;
     this.serial = null;
-
+    this.imei = null;   //添加imei
     var me = this;
 
     channel.onCordovaReady.subscribe(function () {
@@ -61,6 +61,7 @@ function Device () {
             me.isVirtual = info.isVirtual;
             me.manufacturer = info.manufacturer || 'unknown';
             me.serial = info.serial || 'unknown';
+            me.imei = info.imei;
             channel.onCordovaInfoReady.fire();
         }, function (e) {
             me.available = false;
